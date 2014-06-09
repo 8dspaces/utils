@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h1>Test Form...</h1>
+    <hr/>
+    <form action="#" onsubmit="return validate(this);">
+        <label for="username">UserName:</label>
+        <input type="text" name="namestring" id="username" />
+        <br />
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+        <input  type="submit" value="Submit"/>
+    </form>
+    
+    <script type="text/javascript">
+    function validate(info){
+        //alert(info.namestring.value);
+        if(info.namestring.value =="" || info.namestring.value == null){
+            alert("can't empty");
+            return false;
+        } 
+        else{
+            return true;
+        }
+        
+    }
+    </script>
+    <!--script type="text/javascript" src="./ex4.js"></script-->
+</body>
+</html>
