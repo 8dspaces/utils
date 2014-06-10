@@ -3,6 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title></title>
+    <style type="text/css">
+       .body{
+            margin: 1em 10%;
+       }
+    </style>
 </head>
 <body>
 	<h1>Test Form...</h1>
@@ -11,9 +16,11 @@
         <label for="username">UserName:</label>
         <input type="text" name="namestring" id="username" />
         <br />
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" />
+        <!--label for="password">Password:</label-->
+        <p>Password: <input type="password" name="password" id="password" /></p><br />
+        
         <input  type="submit" value="Submit"/>
+        <input type="reset" value="Reset" />
     </form>
     
     <script type="text/javascript">
