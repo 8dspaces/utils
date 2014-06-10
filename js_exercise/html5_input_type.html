@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style type="text/css">
+        body{
+            margin: 1em 10%;
+        }
+    </style>
+</head>
+<body>
+    <!--关于htmk新增的input类型
+        html5新增的input类型有：email,url,number,range,date pickers,
+                                datalist,telephone,search,color
+        email:提交时会自动验证输入的内容是否满足格式
+        url:提交时会自动验证输入内容是否为url
+        
+        number:用于输入数字，其中min为最小值，max为最大值，step为点击箭头是数字的变化量，value为默认值，min,max，step,value均可不写
+        年龄：<input type="number" name="user_age" min="18" max="120" step="1" value="20"/> 
+        
+        range:用于应该包含一定范围内数字值的输入域,显示为滑动条
+        比例:<input type="range" name="user_range" min="10" max="100"/></br> 
+        
+        date pickers:有date,month,week,time,datetime,datetime-local这几种类型
+        
+        datalist:相当于下拉列表，有自动补充功能
+        网址: <input type="url" list="url_list" name="link" required />  
+            <datalist id="url_list">  
+              <option label="web1" value="http://www.web1.com.cn" />  
+              <option label="web2" value="http://www.web2.com" />  
+              <option label="web3" value="http://www.web3.com" />  
+            </datalist>  
+        search, telephone暂时没看出区别
+    -->
+	<form action="#" >
+    <p>Email: <input type="email" name="" id="" /></p>  
+    <p>Url: <input type="url" list="url_list" name="" id="" /></p>
+   <p>Datalist used by above input <datalist id="url_list">
+              <option label="web1" value="http://www.web1.com.cn" />  
+              <option label="web2" value="http://www.web2.com" />  
+              <option label="web3" value="http://www.web3.com" />      
+    </datalist></p>
+    
+    <p>Number: <input type="number" name="" id="" /></p>
+    <p>Range: <input type="range" name="" id="" min="10", max="100"/></p>
+    <p>Date:<input type="date" name="" id="" /></p>
+
+    <p>Telephone: <input type="telephone" name="" id="" /></p>
+    <p>Search: <input type="search" name="" id="" /></p>
+    <p>Color: <input type="color" name="" id="" /></p>
+    <input type="submit" value="Submit" />
+</body>
+</html>
