@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+    全选：<input type="button" id="All" value="全选" /><br />
+    不选<input type="button" id="uncheck" value="不选" /><br />
+    反选<input type="button" id="othercheck" value="反选" /><br />
+    <div id="div">
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+        <input type="checkbox" /><br />
+    </div>
+    <script type="text/javascript">
+
+        var selectall = document.getElementById("All");
+        var uncheckall = document.getElementById("uncheck");
+        var other = document.getElementById("othercheck");
+        
+        var checks = document.getElementsByTagName("input");
+        var l=checks.length;
+        //alert(checks.length);
+        selectall.onclick = function(){
+            for(var i=0; i<l; i++){
+                checks[i].checked = true;
+            }            
+        }
+        
+        uncheckall.onclick = function(){
+            for(var i=0; i<l; i++){
+                checks[i].checked = false;
+            }         
+        }
+        
+        other.onclick = function(){
+            for(var i=0; i<l; i++){
+                if(checks[i].checked == true){
+                    checks[i].checked = false;
+                }else{
+                    checks[i].checked = true;
+                } 
+            }  
+        }
+        
+    </script>
+</body>
+</html>
