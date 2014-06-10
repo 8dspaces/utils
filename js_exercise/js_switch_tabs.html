@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style type="text/css">
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        思路：选项卡就是点击按钮切换到相应内容，其实就是点击按钮把内容通过display(block none)来实现切换的。
+
+        1、首先获取元素。
+
+        2、for循环历遍按钮元素添加onclick 或者 onmousemove事件。
+
+        3、因为点击当前按钮时会以高亮状态显示，所以要再通过for循环历遍把所有的按钮样式设置为空和把所有DIV的display设置为none。
+
+        4、把当前按钮添加样式，把当前DIV显示出来，display设置为block。
+
+        注：给多个元素添加多个事件要用for循环历遍。如选项卡是点击切换，当前按钮高度，点击和按钮高亮就是2个事件，所以要用2个for循环历遍。
+    -->
+	<div id="box">
+        <input type="button" value="1" />
+        <input type="button" value="2" />
+        <input type="button" value="3" />
+        <input type="button" value="4" />
+
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    <script type="text/javascript">
+        var box = document.getElementById("box");
+        var inputs = box.getElementsByTagName("input");
+        var divs = box.getElementsByTagName("div");
+        
+        for(var i=0, l=inputs.length; i<l; i++){
+            inputs[i].index = i;
+            inputs[i].onclick = function(){
+            
+                //先遍历使所有div元素不可见
+                for(var i=0; i< inputs.length; i++){
+                    inputs[i].className="";
+                    divs[i].style.display = "none";
+                };
+                this.className="active";
+                divs[this.index].style.display = "block";
+            };
+        };
+        
+        
+    </script>
+</body>
+</html>
