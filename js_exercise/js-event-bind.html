@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+    <!--关于事件绑定
+        1、在DOM中，直接用onXXX="fun();"进行绑定 
+
+        2、在Javascript代码中用 DOM对象.onXXX=fun 进行绑定
+
+        3、用 DOM对象.attachEvent("onXXX",fun) 进行绑定
+
+        4、用<script for="domId" event="onXXX">fun();</script> 进行绑定
+    -->
+	<form action="#" >
+    
+        <p>Password: <input type="password" name="pass" id="pass" placeholder="请输入密码" /></p>
+        
+    <script type="text/javascript">
+    
+        //事件绑定方式之一， 在元素属性中加onxxxx = "fn();"
+        //onblur="showtext(this);" onfocus="hidetext(this);" 
+        
+        function showtext(){
+            this.placeholder = "请输入密码";
+        }
+        function hidetext(){
+            this.placeholder = "";
+        }
+        var pa = document.getElementById("pass");
+        
+        //事件绑定方式之二，不传递参数，函数中用this
+        pa.onblur = showtext;
+        pa.onfocus = hidetext;
+    </script>
+</body>
+</html>
