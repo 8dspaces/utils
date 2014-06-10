@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	this is red squre: <canvas id="squre" width=10, height=10></canvas><br />
+    this is blue circle: <canvas id="circle" width=10, height=10></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("squre");
+    var context = canvas.getContext("2d");
+    context.fillStyle = "#f00";
+    context.fillRect(0,0,10,10);
+    
+    canvas = document.getElementById("circle");
+    context = canvas.getContext("2d");
+    context.beginPath();
+    context.arc(5,5,5,0,2*Math.PI, true);
+    context.fillStyle = "#00f";
+    context.fill();    
+</script>
+</body>
+</html>
