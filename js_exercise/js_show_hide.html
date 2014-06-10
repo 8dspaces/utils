@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style type="text/css">
+        body{
+            margin: 1em 10%;
+        }
+        #test{
+            border: 1px solid black;
+            //display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--显示隐藏元素
+        elem.style.visibility ="visible" / "hidden"  
+        只是隐藏元素，元素所占的位置依旧在
+        
+        elem.style.display = "none" / "block"
+        会去除元素所占空间
+        Note：如style.display状态不好判断，可以声明一个变量来存储状态
+    -->
+    <div id="test">
+        <h1>Test Block</h1>
+        <p>click will hide</p> 
+    </div>
+    <input type="button" value="Show/Hide" id="toggle" />
+    <script type="text/javascript">
+    
+    
+        var tog = document.getElementById("toggle");
+        var block = document.getElementById("test");
+        var stat = true;
+        tog.onclick = function(){        
+   
+            /* 方法一
+            if(block.style.visibility == "" || block.style.visibility == "visible"){
+                block.style.visibility = "hidden";
+            }else if(block.style.visibility == "hidden"){
+                block.style.visibility = "visible";
+            }
+            
+            */
+            // 方法二
+            if(block.style.display == "none"){
+                block.style.display = "block";
+ 
+            }else if(block.style.display == "block"){
+                block.style.display ="none";
+            } 
+            else{
+                block.style.display ="none";
+            }
+            
+            //如elem.style不好判断，用stat状态变量来判断
+            /*方法三
+            if(stat){
+                block.style.display ="none";
+                stat = false;
+            }else{
+                block.style.display ="block";
+                stat = true;
+            }
+            */
+            
+        }
+        
+    </script>
+</body>
+</html>
