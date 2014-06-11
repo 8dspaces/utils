@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style type="text/css">
+        body{
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+        #content, #wrap{
+            width: 960px;
+        }
+        #post{
+            width: 150px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+
+    <h1>Key words Filter</h1><hr />
+    <form action="#">
+        <textarea name="content" id="content" cols="80" rows="20"></textarea><br />
+        <input type="submit" id="post" value="Submit" />
+    </form>
+</div>
+	<script type="text/javascript">
+    window.onload = function(){
+        var post = document.getElementById("post"),
+            content = document.getElementById("content"),
+            reg = /不|我|李白/g;
+            
+        post.onclick = function(){
+            content.value = content.value.replace(reg, "#");
+            return false;
+        };
+        
+    };
+    
+    </script>
+</body>
+</html>
