@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<h1>Test Ajax</h1><hr />
+    <input id="load" type="button" value="Load Text" />
+    <p id="content"></p>
+    
+    <script type="text/javascript">
+        window.onload = function(){
+            var load = document.getElementById("load"),
+                content = document.getElementById("content");
+                
+            load.onclick = function(){
+
+                var request = new XMLHttpRequest();
+                request.open("GET","test.txt",true);
+                request.onreadystatechange = function(){
+                    
+                    if(request.readyState == 4 && request.status == 200){
+                        content.innerHTML = request.responseText;
+                    }
+                };
+                request.send(null);
+            };   
+        };
+    </script>
+</body>
+</html>
