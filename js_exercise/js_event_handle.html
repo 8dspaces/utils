@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+</head>
+<body>
+    <!-- 关于事件注册
+    事件注册有两种方式
+    1. 给事件目标或文档元素设置属性，有两种方式
+        - 设置HTM标签属性为事件处理程序（不推荐，HTML和js混在一起）
+            <button onclick="alert('thank you');">Click Here</button>
+        - 为事件属性赋值
+            btn.onclick = function(){alert('thank you');};
+            //btn.onclick = clickhandler;
+       缺点：只能设置一个处理程序
+    2.  利用addEventListener, attachEvent  (removeEventListner, detachEvent)
+        优点，统一的方法， 可绑定多个事件
+        btn.addEventListener("click",clickhandler,false);
+        btn.attachEvent("onclick",clickandler);  --同一处理函数和绑定多次
+    执行顺序：
+    设置HTM标签属性为事件处理程序总是最先执行
+    addEventListener： 按注册顺序
+    attachEvent： 随意，当执行顺序无特殊要求时
+    -->
+    <h1>Event Handle</h1>
+    <hr />
+    <input type="button" value="test1" id="b1" />
+    <input type="button" value="test2" id="b2" />
+    <input type="button" value="test3" id="b3" /><br />
+    
+    <button id="btn1">Button 1</button>
+    <button id="btn2">Button 2</button>
+    
+	<script type="text/javascript">
+    window.onload = function(){
+    
+        var btns = document.getElementsByTagName("input");
+        
+        function btnhandler(){
+            alert(this.value);
+        }
+        
+        for(var i=0; i<btns.length; i++){
+            btns[i].onclick = btnhandler;
+        }
+        //use closure to pass parameters
+        function buttonhandler(str){
+            return function(){
+                alert(str);
+            } 
+        }
+        
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        
+        btn1.onclick = buttonhandler("I am No1.");
+        btn2.onclick = buttonhandler("I am the scond button");   
+        
+    };
+    </script>
+</body>
+</html>
