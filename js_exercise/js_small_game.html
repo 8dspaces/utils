@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <style type="text/css">
+        body{
+            margin: 0 10%;
+        }
+        div{
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+	<h1>Small Game: Random</h1><hr />
+    <input type="text" id="times" />
+    <input type="button" value="Play" id="run" /><hr />
+    <p>Result below:</p><br />
+    <div>
+        <p id= "result"></p>
+    </div>
+    <script type="text/javascript">
+    window.onload = function(){
+        
+        var btnplay = document.getElementById("run");
+        var result =  document.getElementById("result");
+        
+        function gen(){
+            return Math.round(Math.random()*10);
+        }
+        btnplay.onclick = function(){
+            
+            var times = parseInt(document.getElementById("times").value);
+            if(times is NaN || times < 0){
+                
+            }
+            var wins = 0;
+            var win_arr = [];
+            for(var i=0;i < times; i++){
+                var temp = "";
+                for(var j=0; j<3; j++){
+                    temp += gen();
+                }
+                
+                if (temp.indexOf("8")!== -1){
+                    wins += 1;
+                    win_arr.push(temp);
+                }
+            }
+            //output the result
+            result.innerHTML = "Runs:" + times + "<br />Wins:" + wins +"<br />Details: " + win_arr.toString();
+        };
+    };
+
+    
+    </script>
+</body>
+</html>
