@@ -1,0 +1,99 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>div+css+js实现菜单的收缩与展开</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+body {
+ margin: 30px auto;
+}
+ul {
+ list-style: none;
+}
+#faq {
+ font-size: 12px;
+ width: 800px;
+}
+#faq li {
+ margin: 0 0 10px;
+ padding: 0 0 5px;
+}
+#faq dl {
+ margin: 0;
+ padding:0;
+ display:inline;
+}
+#faq dt {
+ font-weight:bold;
+ cursor:pointer;
+ line-height: 20px;
+ padding: 0 0 5px 22px;
+ border-bottom:1px #ccc dotted;
+}
+#faq dd {
+ display:none;
+ margin:0;
+ padding: 5px 0 5px 20px;
+ background:#E5ECF9;
+ line-height: 180%;
+}
+</style>
+<script type="text/javascript">
+var lastFaqClick=null;
+window.onload=function(){
+  var faq=document.getElementById("faq");
+  var dls=faq.getElementsByTagName("dl");
+  for (var i=0,dl;dl=dls[i];i++){
+    var dt=dl.getElementsByTagName("dt")[0];//取得标题
+     dt.id = "faq_dt_"+(Math.random()*100);
+     dt.onclick=function(){
+       var p=this.parentNode;//取得父节点
+        if (lastFaqClick!=null&&lastFaqClick.id!=this.id){
+          var dds=lastFaqClick.parentNode.getElementsByTagName("dd");
+          for (var i=0,dd;dd=dds[i];i++)
+            dd.style.display='none';
+        }
+        lastFaqClick=this;
+        var dds=p.getElementsByTagName("dd");//取得对应子节点，也就是说明部分
+        var tmpDisplay='none';
+        if (gs(dds[0],'display')=='none')
+          tmpDisplay='block';
+        for (var i=0;i<dds.length;i++)
+          dds[i].style.display=tmpDisplay;
+      }
+  }
+}
+
+function gs(d,a){
+  if (d.currentStyle){
+    var curVal=d.currentStyle[a]
+  }else{
+    var curVal=document.defaultView.getComputedStyle(d, null)[a]
+  }
+  return curVal;
+}
+</script>
+</head>
+<body>
+<ul id="faq">
+  <li>
+    <dl>
+      <dt>JQuery InnerFade</dt>
+      <dd>JQuery InnerFade 是一款专业用来在网页上显示淡入淡出效果的插件，可以下载到原版，它可完成图片与图片、文字与文字、网页与广告的渐显效果，同时使用方法简便，官方示例文件已附加进压缩包，使用本特效，可增加你网页的生动性，避免死板，让用户获得更好的用户体验。。</dd>
+    </dl>
+  </li>
+   <li>
+    <dl>
+      <dt>开源相册图片直读版</dt>
+      <dd>Dynamic Flash Gallery 开源相册图片直读版，运行于PHP环境，使用时只需设定图片目录，相册会自动读取目录中的图片，然后将图片组织起来，并生成一个带滑块浏览功能的相册。</dd>
+    </dl>
+  </li>
+ <li>
+    <dl>
+      <dt>AjAX是什么？</dt>
+      <dd>一种能够提升用户体验的WEB2.0新型技术，可以实现像电脑系统一样的操作体验，类似本地化的一种脚本技术。</dd>
+    </dl>
+  </li>
+ </ul>
+</body>
+</html>
