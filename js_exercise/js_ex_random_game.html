@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+    <button id="run">Run</button>
+    <p id="msg"></p>
+</head>
+<body>
+<script type="text/javascript">
+
+/*
+制作一个产生随机数游戏， 每次随机产生三个数字，如果有一个是8的话，就算这次赢，要求计算出胜率。
+知识点： 全局变量， Math随机产生数字的操作。
+*/
+var msg = document.getElementById("msg");
+var run = document.getElementById("run");
+
+var playtime = 0;
+var wintime = 0;
+var result = new Array(3);
+
+function play_one(){
+
+        var is_win = false;
+        playtime = playtime+1;
+        
+        for(var i=0; i<3;i++){
+            result[i] = Math.floor(Math.random()*9+1);
+            if(result[i] === 8){
+                is_win = true;
+            }
+        }
+        if(is_win){
+            wintime = wintime + 1;
+            msg.textContent = "you win on" + result.toString() + "win rate is" + wintime/playtime;
+        }
+        else{
+            msg.textContent = "you lost on" + result.toString() + "win rate is" + wintime/playtime;
+        }
+}
+run.onclick = play_one;
+
+</script>
+</body>
+</html>
+
